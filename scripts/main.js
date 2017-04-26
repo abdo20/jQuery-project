@@ -1,17 +1,16 @@
 
 
 $(document).ready(function(){
-	var $grid = $('.contianer');
-	makeGrid($grid);
+	makeGrid('.contianer',16);
 	colorOnHover();
 	clearButton();
 });
 
-function makeGrid(contianer){
+function makeGrid(contianer,squaresNumber){
 	for (i = 0; i < 16; i++) {
 	    var row = '<div class="line">';
 
-   	 for (j = 0; j < 16; j++){
+   	 for (j = 0; j < squaresNumber; j++){
      	   row += '<div class="square"></div>';
      		}
      row += '</div>';
@@ -28,8 +27,11 @@ function colorOnHover(){
 
 function clearButton(){
 	$('button').on('click',function(){
-		$('.square').filter('.color').removeClass('color');
+		$('.contianer').remove();
+		var squaresNumber = prompt("What is the number of squares you need in the new grid?");
+		$('.main').append('<div class="contianer"></div>');
+		makeGrid('.contianer',squaresNumber);
+		colorOnHover();
 	});
 }
-
 
