@@ -4,6 +4,7 @@ $(document).ready(function(){
 	var $grid = $('.contianer');
 	makeGrid($grid);
 	colorOnHover();
+	clearButton();
 });
 
 function makeGrid(contianer){
@@ -25,7 +26,10 @@ function colorOnHover(){
 	});
 }
 
+function clearButton(){
+	$('button').on('click',function(){
+		$('.square').filter('.color').removeClass('color');
+	});
+}
 
-
-// Create a web page with a 16x16 grid of square divs.
 
